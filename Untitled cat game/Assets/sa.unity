@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9adc97cf76f9b45b650b1edeea0d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpHeight: 2
+  timeToJumpApex: 0.4
 --- !u!23 &254890272
 MeshRenderer:
   m_ObjectHideFlags: 0
