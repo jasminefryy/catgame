@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 	float gravity;
 	float jumpVelocity;
 	Vector3 velocity;
+	float velocityXSmoothing;
 
 	Controller2D controller;
 
@@ -35,7 +36,8 @@ public class Player : MonoBehaviour {
 			velocity.y = jumpVelocity;
 		}
 
-		velocity.x = input.x * moveSpeed;
+		float targetVelocityX = input.x * moveSpeed;
+		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, .1f);
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime);
 	}
