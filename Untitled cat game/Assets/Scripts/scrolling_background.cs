@@ -47,7 +47,7 @@ public class scrolling_background : MonoBehaviour
 				ScrollRight ();
 		}
 	}
-
+		
 	private void ScrollLeft()
 	{
 		int lastRight = rightIndex;
