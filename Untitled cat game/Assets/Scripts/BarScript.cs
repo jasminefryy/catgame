@@ -22,7 +22,7 @@ public class BarScript : MonoBehaviour {
 	}
 
 	private void HandleBar (){
-		content.fillAmount = Map(53,0,100,0,1);
+		content.fillAmount = Map(100,0,100,0,1);
 	}
 
 	private float Map(float value, float inMin, float inMax, float outMin, float outMax){

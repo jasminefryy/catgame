@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	public float jumpHeight = 4;
 	public float timeToJumpApex = .4f;
 	float moveSpeed = 6;
+	public int points;
 
 	float gravity;
 	float jumpVelocity;
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour {
 		print ("Gravity: " + gravity + " Jump Velocity " + jumpVelocity);
 	}
 
-	void Update(){
+	void FixedUpdate(){
 
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
@@ -42,3 +43,4 @@ public class Player : MonoBehaviour {
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime);
 	}
+}
