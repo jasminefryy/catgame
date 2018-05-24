@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	Vector3 velocity;
 	float velocityXSmoothing;
 
+	//reference to the controller
 	Controller2D controller;
 
 	void Start () {
@@ -41,4 +42,3 @@ public class Player : MonoBehaviour {
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move (velocity * Time.deltaTime);
 	}
-}

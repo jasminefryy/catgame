@@ -1634,6 +1634,7 @@ GameObject:
   - component: {fileID: 991947777}
   - component: {fileID: 991947779}
   - component: {fileID: 991947778}
+  - component: {fileID: 991947780}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1693,6 +1694,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 991947776}
+--- !u!114 &991947780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991947776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e50339165b14cad8c8c156c137caf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillAmount: 1
+  content: {fileID: 1448738162}
 --- !u!1 &1111684140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,7 +3860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9adc97cf76f9b45b650b1edeea0d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 2
+  jumpHeight: 3
   timeToJumpApex: 0.4
 --- !u!23 &1934893606
 MeshRenderer:

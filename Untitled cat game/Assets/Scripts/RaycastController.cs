@@ -7,16 +7,20 @@ public class RaycastController : MonoBehaviour {
 
 	public LayerMask collisionMask;
 
-	public const float skinWidth = .015f;
+	public const float skinWidth = .015f; //value cant be change after being set
+
+	//this defines how many rays are being fired horizontally and vertically
 	public int horizontalRayCount = 4;
 	public int verticalRayCount = 4;
 
+	/*This will calulate the spacing between each horizontal/vertical ray depending on 
+	how many I've chosen to fire as well as the size of the bounds*/
 	[HideInInspector]
 	public float horizontalRaySpacing;
 	[HideInInspector]
 	public float verticalRaySpacing;
 
-	[HideInInspector]
+	[HideInInspector]//references to other sections of the code
 	public BoxCollider2D collider;
 	public RaycastOrigins raycastOrigins;
 
@@ -25,6 +29,8 @@ public class RaycastController : MonoBehaviour {
 		CalculateRaySpacing ();
 	}
 
+	/* method for updating the raycastOrigins: to recieve the bounds of the collider and 
+	shrink the bounds so that on all sides its inset by skin width*/
 	public void UpdateRaycastOrigins() {
 		Bounds bounds = collider.bounds;
 		bounds.Expand (skinWidth * -2);
@@ -35,6 +41,9 @@ public class RaycastController : MonoBehaviour {
 		raycastOrigins.topRight = new Vector2 (bounds.max.x, bounds.max.y);
 	}
 
+	/*I want to get the bounds and make sure that the horizontal and vertical
+	ray count are greater than or equal to 2 since when there are fired there needs to be 
+	one in each corner*/
 	public void CalculateRaySpacing() {
 		Bounds bounds = collider.bounds;
 		bounds.Expand (skinWidth * -2);
@@ -45,7 +54,7 @@ public class RaycastController : MonoBehaviour {
 		horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
 		verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
 	}
-
+	//This allows for easy recieving of any of the corners of the box collider (the struct will store these positions)
 	public struct RaycastOrigins {
 		public Vector2 topLeft, topRight;
 		public Vector2 bottomLeft, bottomRight;
