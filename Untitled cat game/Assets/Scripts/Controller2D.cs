@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//reference to the controller
 [RequireComponent (typeof (BoxCollider2D))]
 public class Controller2D : RaycastController {
 
