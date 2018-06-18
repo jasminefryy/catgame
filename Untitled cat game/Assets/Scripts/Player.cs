@@ -5,6 +5,13 @@ using UnityEngine;
 [RequireComponent (typeof(Controller2D))]
 public class Player : MonoBehaviour {
 
+	[SerializeField]
+	private Stat health;
+
+	private void Awake() {
+		health.Initialize ();
+	}
+
 	public float jumpHeight = 4;
 	public float timeToJumpApex = .4f;
 	float moveSpeed = 6;
@@ -25,8 +32,16 @@ public class Player : MonoBehaviour {
 		jumpVelocity = Mathf.Abs (gravity) * timeToJumpApex;
 		print ("Gravity: " + gravity + " Jump Velocity " + jumpVelocity);
 	}
-
+	 
 	void FixedUpdate(){
+
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			health.CurrentVal -= 10;
+		}
+
+		if (Input.GetKeyDown (KeyCode.W)) {
+			health.CurrentVal += 10;
+		}
 
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
